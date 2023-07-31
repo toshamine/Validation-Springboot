@@ -35,4 +35,5 @@ public class GreetingController {
                 .ok(greetingService.greet(greeting));
 
     }
+
 }

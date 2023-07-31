@@ -25,3 +25,24 @@ jobs:
         run: |
           mvn clean
           mvn package
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/validation-github-actions:latest
+
+      - name: Login To Dockerhub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/validation-github-actions:latest
+

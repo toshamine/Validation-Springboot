@@ -53,6 +53,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>validation-springboot.jar</finalName>
 	</build>
 
 </project>

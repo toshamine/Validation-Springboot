@@ -22,7 +22,7 @@ jobs:
         run: mvn test
 
       - name: Build Code
-        run: mvn clean package
+        run: mvn clean package --file pom.xml
 
       - name: Build Docker Image
         uses: docker/build-push-action@v4
